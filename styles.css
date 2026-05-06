@@ -18,11 +18,11 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 20px 40px;
-  background-color:rgb(82, 11, 82);
+  background-color: black;
   border-bottom: 1px solid purple;
   position: sticky;
   top: 0px;
-  z-index: 100;
+  z-index: 999;
 }
 
 .nav-brand {
@@ -44,22 +44,48 @@ body {
 }
 
 /* ===== HERO SECTION ===== */
+
 .hero {
   text-align: center;
-  padding: 100px 20px;
-  background-color: black;
+  padding: 80px 20px;
+  height: 900px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-image: url('images/hero.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   border-bottom: 1px solid purple;
+  position: relative;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.65);
+  z-index: 2;
 }
 
 .hero h1 {
-  font-size: 48px;
-  margin-bottom: 16px;
+  position: relative;
+  z-index: 3;
   color: violet;
+  font-size: 42px;
+  margin-bottom: 16px;
 }
 
 .hero p {
-  font-size: 18px;
+  position: relative;
+  z-index: 3;
   color: lightgray;
+  font-size: 18px;
   max-width: 600px;
   margin: 0px auto;
 }
@@ -155,22 +181,47 @@ body {
 }
 
 /* ===== HUB HERO ===== */
-.hub-hero {
+ .hub-hero {
   text-align: center;
   padding: 80px 20px;
-  background-color: black;
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-image: url('images/movies.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   border-bottom: 1px solid purple;
+  position: relative;
+}
+
+.hub-hero::before {
+  content: '';
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.65);
+  z-index: 2;
 }
 
 .hub-hero h1 {
+  position: relative;
+  z-index: 3;
+  color: violet;
   font-size: 42px;
   margin-bottom: 12px;
-  color: violet;
 }
 
 .hub-hero p {
-  font-size: 16px;
+  position: relative;
+  z-index: 3;
   color: lightgray;
+  font-size: 16px;
 }
 
 /* ===== HUB SECTIONS ===== */
@@ -191,6 +242,67 @@ body {
   color: gray;
   margin-bottom: 24px;
   margin-top: -16px;
+}
+
+/* ===== SEARCH SECTION ===== */
+.search-section {
+  padding: 50px 40px;
+  max-width: 1100px;
+  margin: 0px auto;
+  border-bottom: 1px solid purple;
+}
+
+.search-section h2 {
+  font-size: 26px;
+  margin-bottom: 24px;
+  color: white;
+}
+
+.search-form {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.search-form input {
+  flex: 1;
+  padding: 12px 16px;
+  background-color: indigo;
+  border: 1px solid purple;
+  border-radius: 8px;
+  color: white;
+  font-size: 15px;
+  outline: none;
+  min-width: 200px;
+}
+
+.search-form input:focus {
+  border-color: violet;
+}
+
+.search-form select {
+  padding: 12px 16px;
+  background-color: indigo;
+  border: 1px solid purple;
+  border-radius: 8px;
+  color: white;
+  font-size: 15px;
+  outline: none;
+}
+
+.search-form select option {
+  background-color: indigo;
+  color: white;
+}
+
+.search-form button {
+  width: auto;
+  padding: 12px 24px;
+}
+
+.search-results {
+  margin-top: 20px;
 }
 
 /* ===== CARDS GRID ===== */
@@ -263,19 +375,44 @@ body {
 .add-hero {
   text-align: center;
   padding: 80px 20px;
-  background-color: black;
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-image: url('images/artists.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   border-bottom: 1px solid purple;
+  position: relative;
+}
+
+.add-hero::before {
+  content: '';
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.65);
+  z-index: 2;
 }
 
 .add-hero h1 {
+  position: relative;
+  z-index: 3;
+  color: violet;
   font-size: 42px;
   margin-bottom: 12px;
-  color: violet;
 }
 
 .add-hero p {
-  font-size: 16px;
+  position: relative;
+  z-index: 3;
   color: lightgray;
+  font-size: 16px;
 }
 
 /* ===== FORM SECTION ===== */
@@ -393,87 +530,6 @@ button:hover {
   font-size: 15px;
 }
 
-/* ===== SUBMISSIONS SECTION ===== */
-.submissions-section {
-  margin-top: 20px;
-}
-
-.submissions-section h2 {
-  font-size: 22px;
-  margin-bottom: 20px;
-  color: white;
-}
-
-.submission-card {
-  background-color: black;
-  border: 1px solid purple;
-  border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 16px;
-}
-
-.submission-card h4 {
-  font-size: 16px;
-  color: violet;
-  margin-bottom: 6px;
-}
-
-.submission-card p {
-  font-size: 13px;
-  color: lightgray;
-}
-
-/* ===== FOOTER ===== */
-footer {
-  text-align: center;
-  padding: 30px;
-  color: gray;
-  font-size: 13px;
-  border-top: 1px solid purple;
-  margin-top: 60px;
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-  .navbar {
-    padding: 16px 20px;
-  }
-
-  .nav-links a {
-    margin-left: 12px;
-    font-size: 13px;
-  }
-
-  .hero h1 {
-    font-size: 32px;
-  }
-
-  .mood-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .hub-section {
-    padding: 40px 20px;
-  }
-
-  .form-card {
-    padding: 24px;
-  }
-}
-
-@media (max-width: 480px) {
-  .mood-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .hero h1 {
-    font-size: 24px;
-  }
-
-  .nav-brand {
-    font-size: 18px;
-  }
-}
 /* ===== NEWSLETTER SECTION ===== */
 .newsletter-section {
   text-align: center;
@@ -529,4 +585,101 @@ footer {
   margin-top: 16px;
   color: lightsalmon;
   font-size: 15px;
+}
+
+/* ===== SUBMISSIONS SECTION ===== */
+.submissions-section {
+  margin-top: 20px;
+}
+
+.submissions-section h2 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.submission-card {
+  background-color: black;
+  border: 1px solid purple;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.submission-card h4 {
+  font-size: 16px;
+  color: violet;
+  margin-bottom: 6px;
+}
+
+.submission-card p {
+  font-size: 13px;
+  color: lightgray;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  padding: 30px;
+  color: gray;
+  font-size: 13px;
+  border-top: 1px solid purple;
+  margin-top: 60px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: black;
+  border-bottom: 1px solid purple;
+  position: sticky;
+  top: 0px;
+  z-index: 9999;
+  width: 100%;
+}
+  padding: 16px 20px;
+  }
+
+  .nav-links a {
+    margin-left: 12px;
+    font-size: 13px;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .mood-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hub-section {
+    padding: 40px 20px;
+  }
+
+  .form-card {
+    padding: 24px;
+  }
+
+  .search-form {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .mood-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero h1 {
+    font-size: 24px;
+  }
+
+  .nav-brand {
+    font-size: 18px;
+  }
 }

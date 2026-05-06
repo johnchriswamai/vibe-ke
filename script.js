@@ -4,8 +4,8 @@ const recommendations = {
   sad:      { title: "Disconnect",          type: "Kenyan Movie",         genre: "Drama",               description: "A deep emotional story about modern Kenyan relationships." },
   hype:     { title: "Attack on Titan",     type: "Anime",                genre: "Action / Hype",       description: "The most intense anime ever made. Your heart will race!" },
   chill:    { title: "Your Name",           type: "Anime",                genre: "Romance / Chill",     description: "A beautiful calming anime about two strangers connected across time." },
-  bored:    { title: "Money Heist",         type: "International Series", genre: "Thriller / Adventure","description": "The most binge-worthy series ever. You won't be bored!" },
-  romantic: { title: "Crazy Rich Asians",   type: "International Movie",  genre: "Romance / Comedy",    description: "A fun romantic movie perfect for date night!" }
+  bored:    { title: "Into the badlands",         type: "International Series", genre: "Thriller / Adventure","description": "The most binge-worthy series ever. You won't be bored!" },
+  romantic: { title: "Her(2013)",   type: "International Movie",  genre: "Romance / Comedy",    description: "A fun romantic movie perfect for date night!" }
 };
 
 // ===== MOOD BUTTONS =====
