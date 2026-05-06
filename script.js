@@ -158,3 +158,104 @@ if (clearBtn) {
     }
   });
 }
+// ===== NEWSLETTER SIGNUP =====
+const newsletterBtn = document.getElementById('newsletter-btn');
+
+if (newsletterBtn) {
+  newsletterBtn.addEventListener('click', function() {
+
+    const name    = document.getElementById('newsletter-name').value;
+    const email   = document.getElementById('newsletter-email').value;
+    const success = document.getElementById('newsletter-success');
+    const error   = document.getElementById('newsletter-error');
+
+    // hide previous messages
+    success.style.display = 'none';
+    error.style.display   = 'none';
+
+    // validation
+    if (!name || !email) {
+      error.textContent   = 'Please fill in both your name and email!';
+      error.style.display = 'block';
+      return;
+    }
+
+    // simple email check
+    if (!email.includes('@')) {
+      error.textContent   = 'Please enter a valid email address!';
+      error.style.display = 'block';
+      return;
+    }
+
+    // save to localStorage
+    const subscribers = JSON.parse(localStorage.getItem('vibeKESubscribers')) || [];
+    subscribers.push({ name: name, email: email });
+    localStorage.setItem('vibeKESubscribers', JSON.stringify(subscribers));
+
+    // show success and clear form
+    success.style.display = 'block';
+    document.getElementById('newsletter-name').value  = '';
+    document.getElementById('newsletter-email').value = '';
+  });
+}
+
+// ===== SEARCH FILTER — HUB PAGE =====
+// All searchable content
+const allContent = [
+  { title: "Nairobi Half Life",  category: "movie",   description: "A young man chases his acting dreams in the streets of Nairobi",          tag: "🇰🇪 Kenyan Film",    badge: "Comedy"   },
+  { title: "Disconnect",         category: "movie",   description: "A story about modern Kenyan relationships and social media addiction",     tag: "🇰🇪 Kenyan Film",    badge: "Drama"    },
+  { title: "Crime and Justice",  category: "movie",   description: "Kenya's first crime drama series tackling real urban issues",             tag: "🇰🇪 Kenyan Series",  badge: "Action"   },
+  { title: "Churchill Show",     category: "creator", description: "Kenya's biggest comedy platform showcasing local talent",                 tag: "📺 YouTube",         badge: "Comedy"   },
+  { title: "Moringa School",     category: "creator", description: "Teaching Africans how to code and build tech careers",                   tag: "💻 Education",       badge: "Tech"     },
+  { title: "Wanjiru Njiru",      category: "creator", description: "Kenyan lifestyle and culture content creator",                           tag: "📱 Instagram",       badge: "Lifestyle"},
+  { title: "Sauti Sol",          category: "artist",  description: "Kenya's biggest afro-pop band known across Africa",                      tag: "🎵 Music",           badge: "Music"    },
+  { title: "Cyrus Kabiru",       category: "artist",  description: "World renowned Kenyan visual artist and sculptor",                       tag: "🎨 Visual Art",      badge: "Visual Art"},
+  { title: "Bien",               category: "artist",  description: "Solo artist and Sauti Sol member pushing Kenyan music globally",         tag: "🎵 Music",           badge: "Music"    },
+];
+
+const searchBtn   = document.getElementById('search-btn');
+const resetBtn    = document.getElementById('reset-btn');
+
+if (searchBtn) {
+  searchBtn.addEventListener('click', function() {
+
+    const keyword  = document.getElementById('search-input').value.toLowerCase();
+    const category = document.getElementById('filter-category').value;
+    const results  = document.getElementById('search-results');
+
+    // filter content based on keyword and category
+    const filtered = allContent.filter(function(item) {
+      const matchKeyword  = item.title.toLowerCase().includes(keyword) ||
+                            item.description.toLowerCase().includes(keyword);
+      const matchCategory = category === 'all' || item.category === category;
+      return matchKeyword && matchCategory;
+    });
+
+    // show results
+    if (filtered.length === 0) {
+      results.innerHTML = '<p style="color:gray">No results found. Try a different search!</p>';
+      return;
+    }
+
+    results.innerHTML = '<div class="cards-grid">';
+    filtered.forEach(function(item) {
+      results.innerHTML += `
+        <div class="card">
+          <div class="card-badge">${item.badge}</div>
+          <h3>${item.title}</h3>
+          <p>${item.description}</p>
+          <span class="card-tag">${item.tag}</span>
+        </div>
+      `;
+    });
+    results.innerHTML += '</div>';
+  });
+}
+
+if (resetBtn) {
+  resetBtn.addEventListener('click', function() {
+    document.getElementById('search-input').value    = '';
+    document.getElementById('filter-category').value = 'all';
+    document.getElementById('search-results').innerHTML = '';
+  });
+}
