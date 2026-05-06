@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VibeKE — Your Mood. Your Vibe. Your Kenya.</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <nav class="navbar">
+      <div class="nav-brand">VibeKE 🎬</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="hub.html">Hub</a>
+        <a href="add.html">Add</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <h1>Your Mood. Your Vibe. Your Kenya. 🇰🇪</h1>
+      <p>Can't decide what to watch? Tell us your mood and we'll sort you out.</p>
+    </section>
+
+    <!-- MOOD RECOMMENDER SECTION -->
+    <section class="mood-section">
+      <h2>How are you feeling right now?</h2>
+
+      <div class="mood-grid">
+        <button class="mood-btn" data-mood="happy">😄 Happy</button>
+        <button class="mood-btn" data-mood="sad">😢 Sad</button>
+        <button class="mood-btn" data-mood="hype">🔥 Hype</button>
+        <button class="mood-btn" data-mood="chill">😎 Chill</button>
+        <button class="mood-btn" data-mood="bored">😴 Bored</button>
+        <button class="mood-btn" data-mood="romantic">💕 Romantic</button>
+      </div>
+
+      <!-- RESULT BOX -->
+      <div class="result-box" id="result-box"></div>
+    </section>
+
+    <!-- COMMUNITY PICKS SECTION -->
+    <section class="community-section">
+      <h2>Community Picks 🇰🇪</h2>
+      <p>Recommendations added by the VibeKE community</p>
+      <div class="community-grid" id="community-grid">
+        <!-- JavaScript fills this from localStorage -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+   <!-- NEWSLETTER SECTION -->
+<section class="newsletter-section">
+  <h2>Stay in the Loop 📬</h2>
+  <p>Get the latest Kenyan entertainment picks straight to your inbox</p>
+
+  <div class="newsletter-form">
+    <input type="text" id="newsletter-name" placeholder="Your name" />
+    <input type="email" id="newsletter-email" placeholder="Your email address" />
+    <button id="newsletter-btn">Subscribe 🚀</button>
+  </div>
+
+  <div class="newsletter-success" id="newsletter-success">
+    ✅ You're subscribed! Welcome to VibeKE!
+  </div>
+
+  <div class="newsletter-error" id="newsletter-error"></div>
+</section>
+  <footer>
+    <p>Made with ❤️ for Kenya — VibeKE &copy; 2026</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
