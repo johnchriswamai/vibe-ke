@@ -259,3 +259,33 @@ if (resetBtn) {
     document.getElementById('search-results').innerHTML = '';
   });
 }
+// ===== CONTACT FORM IN FOOTER =====
+const contactBtn = document.getElementById('contact-btn');
+
+if (contactBtn) {
+  contactBtn.addEventListener('click', function() {
+    const name    = document.getElementById('contact-name').value;
+    const email   = document.getElementById('contact-email').value;
+    const message = document.getElementById('contact-message').value;
+    const success = document.getElementById('contact-success');
+
+    if (!name || !email || !message) {
+      alert('Please fill in all fields!');
+      return;
+    }
+
+    if (!email.includes('@')) {
+      alert('Please enter a valid email address!');
+      return;
+    }
+
+    const messages = JSON.parse(localStorage.getItem('vibeKEMessages')) || [];
+    messages.push({ name, email, message, date: new Date().toLocaleDateString() });
+    localStorage.setItem('vibeKEMessages', JSON.stringify(messages));
+
+    success.style.display = 'block';
+    document.getElementById('contact-name').value    = '';
+    document.getElementById('contact-email').value   = '';
+    document.getElementById('contact-message').value = '';
+  });
+}
