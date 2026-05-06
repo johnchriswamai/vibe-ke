@@ -55,7 +55,7 @@ git clone git@github.com:johnchriswamai/vibe-ke.git
 ## Author
 
 **John Chris Wamai**
-Moringa School —  Final Project 2026
+Moringa School — Final Project 2026
 GitHub: [github.com/johnchriswamai](https://github.com/johnchriswamai)
 
 ---
