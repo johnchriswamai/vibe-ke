@@ -321,4 +321,7 @@ if (descriptionField) {
     charCount.textContent = '(' + count + '/200)';
     charCount.style.color = count > 180 ? 'lightsalmon' : 'gray';
   });
-}
+}// ===== DYNAMIC COPYRIGHT YEAR =====
+document.querySelectorAll('footer').forEach(function(footer) {
+  footer.innerHTML = footer.innerHTML.replace('2026', new Date().getFullYear());
+});
