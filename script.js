@@ -52,7 +52,7 @@ const communityGrid = document.getElementById('community-grid');
 if (communityGrid) {
   const submissions = getSubmissions();
   if (submissions.length === 0) {
-    communityGrid.innerHTML = '<p style="color:gray">No community picks yet. Be the first!</p>';
+   communityGrid.innerHTML = '<div class="empty-state"><p>No community picks yet!</p><p>Be the first to add one 🇰🇪</p></div>';
   } else {
     submissions.slice(-3).reverse().forEach(function(item) {
       communityGrid.innerHTML += buildCard(item);
@@ -65,7 +65,7 @@ const hubGrid = document.getElementById('community-recommendations');
 if (hubGrid) {
   const submissions = getSubmissions();
   if (submissions.length === 0) {
-    hubGrid.innerHTML = '<p style="color:gray">No recommendations yet. <a href="add.html" style="color:orangered">Add one!</a></p>';
+hubGrid.innerHTML = '<div class="empty-state"><p>No community recommendations yet!</p><p><a href="add.html" style="color:violet">Be the first to add one 🇰🇪</a></p></div>';
   } else {
     submissions.slice().reverse().forEach(function(item) {
       hubGrid.innerHTML += buildCard(item);

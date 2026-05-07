@@ -910,4 +910,16 @@ footer {
   border-radius: 99px;
   margin-left: 8px;
   vertical-align: middle;
+}/* ===== EMPTY STATE ===== */
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: gray;
+  font-size: 15px;
+  border: 1px dashed purple;
+  border-radius: 12px;
+}
+
+.empty-state p {
+  margin-bottom: 12px;
 }
