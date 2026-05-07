@@ -304,4 +304,10 @@ if (scrollTopBtn) {
   scrollTopBtn.addEventListener('click', function() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
-}
+}// ===== HIGHLIGHT ACTIVE NAV LINK =====
+const currentPage = window.location.pathname.split('/').pop();
+document.querySelectorAll('.nav-links a').forEach(function(link) {
+  if (link.getAttribute('href') === currentPage) {
+    link.classList.add('active');
+  }
+});

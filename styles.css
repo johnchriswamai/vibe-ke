@@ -896,3 +896,9 @@ footer {
 .scroll-top:hover {
   background-color: darkviolet;
 }
+/* ===== ACTIVE NAV LINK ===== */
+.nav-links a.active {
+  color: violet;
+  border-bottom: 2px solid violet;
+  padding-bottom: 4px;
+}
