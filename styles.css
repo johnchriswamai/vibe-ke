@@ -926,4 +926,28 @@ footer {
 
 .empty-state p {
   margin-bottom: 12px;
+}/* ===== MOOD BUTTON TOOLTIP ===== */
+.mood-btn {
+  position: relative;
+}
+
+.mood-btn::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: black;
+  color: white;
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s;
+  z-index: 1;
+}
+
+.mood-btn:hover::after {
+  opacity: 1;
 }
