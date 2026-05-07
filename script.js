@@ -311,3 +311,14 @@ document.querySelectorAll('.nav-links a').forEach(function(link) {
     link.classList.add('active');
   }
 });
+// ===== CHARACTER COUNTER =====
+const descriptionField = document.getElementById('description');
+const charCount = document.getElementById('char-count');
+
+if (descriptionField) {
+  descriptionField.addEventListener('input', function() {
+    const count = descriptionField.value.length;
+    charCount.textContent = '(' + count + '/200)';
+    charCount.style.color = count > 180 ? 'lightsalmon' : 'gray';
+  });
+}

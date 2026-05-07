@@ -1,152 +1,175 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <link rel="icon" href="https://em-content.zobj.net/source/twitter/376/clapper-board_1f3ac.png" type="image/png" />
-  <meta name="description" content="VibeKE - Add your own Kenyan entertainment recommendation" />
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>VibeKE — Add a Recommendation</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
+  <head>
+    <link
+      rel="icon"
+      href="https://em-content.zobj.net/source/twitter/376/clapper-board_1f3ac.png"
+      type="image/png"
+    />
+    <meta
+      name="description"
+      content="VibeKE - Add your own Kenyan entertainment recommendation"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VibeKE — Add a Recommendation</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <header>
+      <nav class="navbar">
+        <div class="nav-brand">VibeKE 🎬</div>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="hub.html">Hub</a>
+          <a href="add.html">Add</a>
+        </div>
+      </nav>
+    </header>
 
-  <!-- NAVBAR -->
-  <header>
-    <nav class="navbar">
-      <div class="nav-brand">VibeKE 🎬</div>
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="hub.html">Hub</a>
-        <a href="add.html">Add</a>
+    <!-- MAIN CONTENT -->
+    <main>
+      <!-- HERO SECTION -->
+      <section class="add-hero">
+        <h1>Add Your Recommendation 🎬</h1>
+        <p>
+          Know a great Kenyan movie, creator or artist? Share it with the
+          community!
+        </p>
+      </section>
+
+      <!-- FORM SECTION -->
+      <section class="form-section">
+        <div class="form-card">
+          <!-- SUCCESS MESSAGE - hidden by default -->
+          <div class="success-msg" id="success-msg">
+            ✅ Your recommendation has been added to the Hub!
+            <a href="hub.html">View it on the Hub →</a>
+          </div>
+
+          <!-- ERROR MESSAGE - hidden by default -->
+          <div class="error-msg" id="error-msg"></div>
+
+          <!-- RECOMMENDATION FORM -->
+          <div class="form-group">
+            <label>Title</label>
+            <input
+              type="text"
+              id="title"
+              placeholder="e.g. Nairobi Half Life"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Category</label>
+            <select id="category">
+              <option value="">Select Category</option>
+              <option value="Kenyan Movie">🎬 Kenyan Movie</option>
+              <option value="Kenyan Series">📺 Kenyan Series</option>
+              <option value="Anime">🎌 Anime</option>
+              <option value="International Movie">
+                🌍 International Movie
+              </option>
+              <option value="Kenyan Creator">📱 Kenyan Creator</option>
+              <option value="Kenyan Artist">🎨 Kenyan Artist</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Genre / Mood</label>
+            <select id="genre">
+              <option value="">Select Genre</option>
+              <option value="happy">😄 Happy / Comedy</option>
+              <option value="sad">😢 Sad / Drama</option>
+              <option value="hype">🔥 Hype / Action</option>
+              <option value="chill">😎 Chill / Romance</option>
+              <option value="bored">😴 Bored / Adventure</option>
+              <option value="romantic">💕 Romantic</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label
+              >Description
+              <span id="char-count" style="color: gray; font-size: 12px"
+                >(0/200)</span
+              ></label
+            >
+            <textarea
+              id="description"
+              placeholder="Tell the community why they should watch this..."
+              maxlength="200"
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>Your Name (optional)</label>
+            <input
+              type="text"
+              id="author"
+              placeholder="e.g. John from Nairobi"
+            />
+          </div>
+
+          <button id="submit-btn">Submit Recommendation 🚀</button>
+        </div>
+
+        <!-- PREVIOUS SUBMISSIONS -->
+        <div class="submissions-section">
+          <h2>Your Previous Submissions</h2>
+          <div id="my-submissions">
+            <!-- JavaScript fills this from localStorage -->
+          </div>
+          <button id="clear-btn">Clear All Submissions</button>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER / CONTACT SECTION -->
+
+    <footer>
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>VibeKE</h3>
+          <p>Your Mood. Your Vibe. Your Kenya.</p>
+          <p>A community platform celebrating Kenyan entertainment.</p>
+        </div>
+
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="hub.html">Hub</a></li>
+            <li><a href="add.html">Add Recommendation</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Contact Us via email</h3>
+          <p>Have a suggestion or want to collaborate?</p>
+          <div class="contact-form">
+            <input type="text" id="contact-name" placeholder="Your name" />
+            <input type="email" id="contact-email" placeholder="Your email" />
+            <textarea
+              id="contact-message"
+              placeholder="Your message..."
+            ></textarea>
+            <button id="contact-btn">Send Message</button>
+            <div class="contact-success" id="contact-success">
+              Message received! We'll get back to you soon.
+            </div>
+          </div>
+        </div>
       </div>
-    </nav>
-  </header>
 
-  <!-- MAIN CONTENT -->
-  <main>
-
-    <!-- HERO SECTION -->
-    <section class="add-hero">
-      <h1>Add Your Recommendation 🎬</h1>
-      <p>Know a great Kenyan movie, creator or artist? Share it with the community!</p>
-    </section>
-
-    <!-- FORM SECTION -->
-    <section class="form-section">
-
-      <div class="form-card">
-
-        <!-- SUCCESS MESSAGE - hidden by default -->
-        <div class="success-msg" id="success-msg">
-          ✅ Your recommendation has been added to the Hub!
-          <a href="hub.html">View it on the Hub →</a>
-        </div>
-
-        <!-- ERROR MESSAGE - hidden by default -->
-        <div class="error-msg" id="error-msg"></div>
-
-        <!-- RECOMMENDATION FORM -->
-        <div class="form-group">
-          <label>Title</label>
-          <input type="text" id="title" placeholder="e.g. Nairobi Half Life" />
-        </div>
-
-        <div class="form-group">
-          <label>Category</label>
-          <select id="category">
-            <option value="">Select Category</option>
-            <option value="Kenyan Movie">🎬 Kenyan Movie</option>
-            <option value="Kenyan Series">📺 Kenyan Series</option>
-            <option value="Anime">🎌 Anime</option>
-            <option value="International Movie">🌍 International Movie</option>
-            <option value="Kenyan Creator">📱 Kenyan Creator</option>
-            <option value="Kenyan Artist">🎨 Kenyan Artist</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label>Genre / Mood</label>
-          <select id="genre">
-            <option value="">Select Genre</option>
-            <option value="happy">😄 Happy / Comedy</option>
-            <option value="sad">😢 Sad / Drama</option>
-            <option value="hype">🔥 Hype / Action</option>
-            <option value="chill">😎 Chill / Romance</option>
-            <option value="bored">😴 Bored / Adventure</option>
-            <option value="romantic">💕 Romantic</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label>Description</label>
-          <textarea id="description" placeholder="Tell the community why they should watch this..."></textarea>
-        </div>
-
-        <div class="form-group">
-          <label>Your Name (optional)</label>
-          <input type="text" id="author" placeholder="e.g. John from Nairobi" />
-        </div>
-
-        <button id="submit-btn">Submit Recommendation 🚀</button>
-
+      <div class="footer-bottom">
+        <p>Made with love for Kenya — VibeKE © 2026</p>
       </div>
+    </footer>
 
-      <!-- PREVIOUS SUBMISSIONS -->
-      <div class="submissions-section">
-        <h2>Your Previous Submissions</h2>
-        <div id="my-submissions">
-          <!-- JavaScript fills this from localStorage -->
-        </div>
-        <button id="clear-btn">Clear All Submissions</button>
-      </div>
+    <script src="script.js"></script>
 
-    </section>
-
-  </main>
-
-  <!-- FOOTER / CONTACT SECTION -->
-
-<footer>
-  <div class="footer-grid">
-
-    <div class="footer-col">
-      <h3>VibeKE </h3>
-      <p>Your Mood. Your Vibe. Your Kenya.</p>
-      <p>A community platform celebrating Kenyan entertainment.</p>
-    </div>
-
-    <div class="footer-col">
-      <h3>Quick Links</h3>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="hub.html">Hub</a></li>
-        <li><a href="add.html">Add Recommendation</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h3>Contact Us via email</h3>
-      <p>Have a suggestion or want to collaborate?</p>
-      <div class="contact-form">
-        <input type="text" id="contact-name" placeholder="Your name" />
-        <input type="email" id="contact-email" placeholder="Your email" />
-        <textarea id="contact-message" placeholder="Your message..."></textarea>
-        <button id="contact-btn">Send Message </button>
-        <div class="contact-success" id="contact-success">
-          Message received! We'll get back to you soon.
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="footer-bottom">
-      <p>Made with love for Kenya — VibeKE © 2026</p>
-  </div>
-</footer>
-
-<script src="script.js"></script>
-
-<button class="scroll-top" id="scroll-top">↑</button>
-</body>
+    <button class="scroll-top" id="scroll-top">↑</button>
+  </body>
 </html>
