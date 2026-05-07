@@ -289,3 +289,19 @@ if (contactBtn) {
     document.getElementById('contact-message').value = '';
   });
 }
+// ===== SCROLL TO TOP BUTTON =====
+const scrollTopBtn = document.getElementById('scroll-top');
+
+window.addEventListener('scroll', function() {
+  if (window.scrollY > 300) {
+    scrollTopBtn.style.display = 'block';
+  } else {
+    scrollTopBtn.style.display = 'none';
+  }
+});
+
+if (scrollTopBtn) {
+  scrollTopBtn.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
